@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/Styles.css">
+</head>
+
+<body>
+
+  <div class="container" >
+        <h1>Car Price Prediction</h1>
+        <form class="form" action="{{ url_for('predict')}}" method="POST">
+          
+          <fieldset class="form-fieldset ui-input __first">
+            <input type="number" id="username" name="Year" tabindex="0" />
+            <label for="username">
+              <span data-text="">Year</span>
+            </label>
+          </fieldset>
+          
+          <fieldset class="form-fieldset ui-input __second">
+            <input type="text" id="email" name="Present_Price" tabindex="0" />
+            <label for="email">
+              <span data-text="">What is the showroom price(in Lakhs)?</span>
+            </label>
+          </fieldset>
+          
+          <fieldset class="form-fieldset ui-input __third">
+            <input type="text" name="Kms_Driven" id="new-password" />
+            <label for="new-password">
+              <span data-text="">How many kilometers driven?</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="form-fieldset ui-input __fifth">
+            <input type="text" name="Owner" id="repeat-new-password" />
+            <label for="repeat-new-password">
+              <span data-text="">How much owners previously had the car(0 or 1 or 3) ?</span>
+            </label>
+          </fieldset>
+          
+          <fieldset class="form-fieldset ui-input __fourth">
+            <input type="text" name="Fuel_Type_Petrol" id="repeat-new-password" />
+            <label for="repeat-new-password">
+              <span data-text="">What is the fuel type?(Petrol/Diesel/CNG)</span>
+            </label>
+          </fieldset>
+          
+          <fieldset class="form-fieldset ui-input __fifth">
+            <input type="text" name="Seller_Type_Individual" id="repeat-new-password" />
+            <label for="repeat-new-password">
+              <span data-text="">Are you a dealer or individual?</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="form-fieldset ui-input __fifth">
+            <input type="text" name="Transmission_Manual" id="repeat-new-password" />
+            <label for="repeat-new-password">
+              <span data-text="">Is it a manual or automatic car</span>
+            </label>
+          </fieldset>
+
+
+          <div class="form-footer">
+            <button class="btn">Calculate Selling Price</button>
+          </div>
+        </form>
+      </div>
+        <h3>{{ prediction_text }}</h3>
+        <h4>©2021 Bhavan Bhatt</h4>
+        <script>
+            var $input = $('.form-fieldset > input');
+
+            $input.blur(function (e) {
+                $(this).toggleClass('filled', !!$(this).val());
+            });
+        </script>
+    
+</body>
+
+</html>
